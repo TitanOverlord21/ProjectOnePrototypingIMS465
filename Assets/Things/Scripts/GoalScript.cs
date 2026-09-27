@@ -13,4 +13,12 @@ public class GoalScript : MonoBehaviour
     {
         
     }
+     private void OnTriggerEnter(Collider other){
+        if (other.CompareTag("Player")){
+            CharacterController controller = other.GetComponent<CharacterController>();
+            controller.enabled = false;
+            other.transform.position = new Vector3(0,0,-4);
+            Debug.Log("hit");
+            controller.enabled = true;
+        }}
 }
