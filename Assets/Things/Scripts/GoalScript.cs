@@ -15,7 +15,7 @@ public class GoalScript : MonoBehaviour
     }
      private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player")){
-            CharacterController controller = other.GetComponent<CharacterController>();
+            CharacterController controller = other.GetComponent<CharacterController>();//Note to self that ai CONCEPTUALLY wrote this line and I copy pasted it in the right place.
             controller.enabled = false;
             other.transform.position = new Vector3(0,0,-4);
             Debug.Log("hit");
