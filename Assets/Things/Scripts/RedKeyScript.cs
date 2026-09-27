@@ -17,9 +17,10 @@ public class RedKey : MonoBehaviour
     //Events and variables down here
     public static event Action RedKeyTaken;
     //Functions can come too I guess
-    OnTriggerEnter(Collider other){
-        if (){
-            
+    private void OnTriggerEnter(Collider other){
+        if (other.CompareTag("Player")){
+            RedKeyTaken?.Invoke();
         }
     }
 }
+
