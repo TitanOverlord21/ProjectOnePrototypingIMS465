@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class RedDoor : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start(){
+        Debug.Log(RedKey.KeyFrequency);
+    }
     private void OnEnable()
     {
         RedKey.RedKeyTaken += Die;//listening
