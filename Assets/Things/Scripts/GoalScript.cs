@@ -20,5 +20,6 @@ public class GoalScript : MonoBehaviour
             other.transform.position = new Vector3(0,0,-4);
             Debug.Log("hit");
             controller.enabled = true;
+            Destroy(gameObject);
         }}
 }
