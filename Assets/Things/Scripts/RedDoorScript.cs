@@ -12,7 +12,7 @@ public class RedDoor : MonoBehaviour
         RedKey.RedKeyTaken -= Die;//done listening
     }
     private void Die(){
-        Debug.Log("Test Successful");
+        Destroy(gameObject);
     }
     // Update is called once per frame
     void Update()
