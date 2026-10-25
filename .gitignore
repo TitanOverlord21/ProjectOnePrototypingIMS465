@@ -10,7 +10,11 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
 *.log
+*.csproj
+*.sln
+*.unitypackage
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
