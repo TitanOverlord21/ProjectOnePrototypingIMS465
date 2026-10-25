@@ -11,6 +11,14 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		//ADAM SETTING AUDIO
+			[SerializeField] private AudioSource JumpSoundSource;
+			[SerializeField] private AudioSource PowerUpSoundSource;
+			[SerializeField] private AudioSource FirstGoalSoundSource;
+			[SerializeField] private AudioSource SecondGoalSoundSource;
+			[SerializeField] private AudioSource KeySoundSource;
+			private float Wins = 0f;
+		//NORMAL AND CALM THINGS YOU DON'T NEED CAPS LOCK FOR@@@@@@!!!! RAAA
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -216,6 +224,7 @@ namespace StarterAssets
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+					JumpSoundSource.Play();//ADAM LINE OF CODE!!!!
 				}
 
 				// jump timeout
@@ -264,5 +273,26 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
+
+		// ADAM FUNCTION TIME!
+		private void OnTriggerEnter(Collider other){
+        	if (other.CompareTag("PowerUp")){
+				PowerUpSoundSource.Play();
+				SprintSpeed += 1;	
+				JumpHeight += .35f;
+        	}
+			else if (other.CompareTag("Goal")){
+				Wins += 1;
+				if (Wins == 1){
+					FirstGoalSoundSource.Play();
+				}
+				else if (Wins == 2){
+					SecondGoalSoundSource.Play();
+				}
+			}
+			else if (other.CompareTag("Key")){
+				KeySoundSource.Play();
+			}
+    }
 	}
 }
