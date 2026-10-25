@@ -3,7 +3,7 @@ using UnityEngine;
 public class RedDoor : MonoBehaviour
 {
     void Start(){
-        Debug.Log(RedKey.KeyFrequency);
+        // Debug.Log(RedKey.KeyFrequency);
     }
     private void OnEnable()
     {
