@@ -5,6 +5,7 @@ public class EmptyMachineScript : MonoBehaviour
 {
     private bool Fillable = false;
     private bool PlayerNear = false;
+    private float NumberFilled = 0f;
     private Vector3 InSlotPosition;
     private Quaternion InSlotRotation;
 
@@ -31,6 +32,10 @@ public class EmptyMachineScript : MonoBehaviour
     }
     private void Close(){
         Fillable = false;
+        NumberFilled += 1f;
+        if (NumberFilled >= 3f){
+            Debug.Log ("The Energy has been restored");
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -56,7 +61,7 @@ public class EmptyMachineScript : MonoBehaviour
 
     // The important one that actually does stuff
     private void Fill(){
-        Debug.Log("Time to fill");
+        // Debug.Log("Time to fill");
         Instantiate(GoalObject, InSlotPosition, InSlotRotation);
         Filled?.Invoke();
     }

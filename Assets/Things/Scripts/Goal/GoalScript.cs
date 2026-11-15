@@ -12,7 +12,7 @@ public class GoalScript : MonoBehaviour
             CharacterController controller = other.GetComponent<CharacterController>();//Note to self that ai CONCEPTUALLY wrote this line and I copy pasted it in the right place.
             controller.enabled = false;
             other.transform.position = new Vector3(-30.704f,0f,72.4399f);
-            other.transform.eulerAngles = new Vector3(0f,329.579f,0f);
+            other.transform.eulerAngles = new Vector3(0f,329.579f - 180f,0f);
             GoalReached?.Invoke();
 
             // Debug.Log("hit");
